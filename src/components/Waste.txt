@@ -1,0 +1,289 @@
+{
+   *** Dashboard code ***
+
+    import React, { useState } from 'react'
+import option_right from '../assets/option_right.png'
+import option_down from '../assets/option_down.png'
+import DatePicker from 'react-datepicker'; 
+import 'react-datepicker/dist/react-datepicker.css';
+import date from '../assets/date.png';
+import credit from '../assets/credit.png';
+import debit from '../assets/debit.png';
+import mobile from '../assets/mobile_banking.png';
+import cash from '../assets/cash.png';
+
+export const Dashboard = () => {
+    const [networthOpen,setNetworthOpen] = useState(true);
+    const [newOpen,setNewOpen] = useState(true);
+    const [recentOpen,setRecentOpen] = useState(true);
+
+    const [selectedDate, setSelectedDate] = useState(new Date());
+
+  return (
+    <div className='flex justify-center border-2 border-blue-gray-500 shadow-xl rounded-md w-3/5 m-auto'>
+
+        {/* Net worth */}
+        <div className='w-1/3'>
+            <div className='flex items-center justify-between'>
+                <img src={networthOpen? option_down : option_right} onClick={()=>setNetworthOpen(!networthOpen)} className='p-3'/>
+                <span>NET WORTH</span>
+                <div className='text-green-600 font-light ml-7'>
+                    <span className='mr-2'>99,99</span>
+                    <span>USD</span>
+                </div>
+            </div>
+
+            {
+                networthOpen && 
+            <div>
+            <div className='mt-2 border-2 border-blue-gray-300 rounded-md shadow-lg rounded-b-none ml-3'>
+                <div className='flex justify-between bg-gray-100 rounded-t-md p-2'>
+                    <span className='ml-3 font-bold'>Cash</span>
+                    <div className='text-green-600 font-light mr-2'>
+                        <span className='mr-2'>99,99</span>
+                        <span>USD</span>
+                    </div>
+                </div>
+
+                <div className='flex justify-between p-2'>
+                <span className='ml-3 text-blue-500'>Alice's Wallet</span>
+                    <div className='text-green-600 font-light mr-2'>
+                        <span className='mr-2'>99,99</span>
+                        <span>USD</span>
+                    </div>
+                </div>
+            </div>
+
+            <div className=' border-2 border-t-0 border-blue-gray-300 ml-3'>
+                <div className='flex justify-between bg-gray-100 rounded-t-md p-2'>
+                    <span className='ml-3 font-bold'>Bank Account </span>
+                    <div className='text-green-600 font-light mr-2'>
+                        <span className='mr-2'>99,99</span>
+                        <span>USD</span>
+                    </div>
+                </div>
+
+                <div className='flex justify-between p-2'>
+                <span className='ml-3 text-blue-500'>Checking</span>
+                    <div className='text-green-600 font-light mr-2'>
+                        <span className='mr-2'>99,99</span>
+                        <span>USD</span>
+                    </div>
+                </div>
+
+                <div className='flex justify-between p-2'>
+                <span className='ml-3 text-blue-500'>Saving</span>
+                    <div className='text-green-600 font-light mr-2'>
+                        <span className='mr-2'>99,99</span>
+                        <span>USD</span>
+                    </div>
+                </div>
+            </div>
+
+            <div className='mb-5 border-2 border-t-0 border-blue-gray-300 rounded-b-md shadow-lg ml-3'>
+                <div className='flex justify-between bg-gray-100 rounded-t-md p-2'>
+                    <span className='ml-3 font-bold'>Credit</span>
+                    <div className='text-green-600 font-light mr-2'>
+                        <span className='mr-2'>99,99</span>
+                        <span>USD</span>
+                    </div>
+                </div>
+
+                <div className='flex justify-between p-2'>
+                <span className='ml-3 text-blue-500'>Master Card</span>
+                    <div className='text-green-600 font-light mr-2'>
+                        <span className='mr-2'>99,99</span>
+                        <span>USD</span>
+                    </div>
+                </div>
+                <div className='flex justify-between p-2'>
+                <span className='ml-3 text-blue-500'>American Express</span>
+                    <div className='text-green-600 font-light mr-2'>
+                        <span className='mr-2'>99,99</span>
+                        <span>USD</span>
+                    </div>
+                </div>
+            </div>
+            </div>
+            }
+        </div>
+
+
+        {/* new expenses */}
+
+        <div className='flex flex-col w-3/5 ml-14'>
+            <div>
+                <div className='flex items-center'>
+                    <img src={newOpen? option_down : option_right} onClick={()=>setNewOpen(!newOpen)} className='p-3'/>
+                    <span>ADD NEW EXPENSES</span>
+                </div>
+
+                {
+                    newOpen && 
+                
+
+                <div className='m-5 rounded-md shadow-lg border-2 p-3 border-gray-400'>
+
+                <div className='flex justify-between items-center'>
+                    <label className="ml-3 block text-sm/6 font-normal text-gray-900">
+                    Name : <span className='ml-3 text-xl text-red-500'>Alice's</span>
+                    </label>
+
+                    <div className='flex items-center'>
+                    <label className="block text-sm/6 mr-3 font-normal text-gray-900">
+                    Amount : 
+                    </label>
+                    <input
+                        id="Amount"
+                        name="amount"
+                        type="number"
+                        className="block w-1/2 mr-3 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    />
+                    <span>INR</span>
+                    </div>
+
+                </div>
+
+                <div className='flex'>
+                <form className=" my-3"> 
+                    {/* <label htmlFor="tags" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> 
+                    Tags 
+                    </label>  */}
+                    
+                    <select id="categories" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " defaultValue="Select Expense Category"> 
+                    <option disabled>Select Expense Category</option> 
+                    <option value="GR">Groceries</option> 
+                    <option value="RS">Restaurant</option> 
+                    <option value="MV">Movies</option> 
+                    <option value="UT">Utilities</option> 
+                    <option value="SH">Shopping</option> 
+                    <option value="PT">Petrol</option> 
+                    <option value="EL">Electricity</option> 
+                    <option value="RT">Rent</option> 
+                    <option value="OT">Others</option> 
+                    </select>
+                </form>
+
+                <form className=" my-3 mx-11"> 
+                    {/* <label htmlFor="option" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> 
+                    Mode 
+                    </label>  */}
+                    
+                    <select id="modes" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " defaultValue="Select Payment Mode"> 
+                    <option disabled>Select Payment Mode</option> 
+                    <option value="CC">Credit Card</option> 
+                    <option value="DC">Debit Card</option> 
+                    <option value="CA">Cash</option> 
+                    <option value="MB">Mobile Banking</option> 
+                    <option value="OT">Others</option>
+                    </select>
+                </form>
+                </div>
+
+
+                <div className='flex'>
+                    <input
+                        id="Note"
+                        name="note"
+                        type="text"
+                        placeholder='Notes'
+                        className="block w-1/2 mr-3 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    />
+                    {/* <span className="text-sm font-medium mr-2 mb-2 flex items-center">Date:</span>  */}
+                    <DatePicker selected={selectedDate} onChange={(date) => setSelectedDate(date)} className="w-full p-2 border border-gray-300 rounded" /> 
+                    
+                </div>
+
+                <div>
+                <button
+                  type="submit"
+                  className="flex w-full justify-center rounded-md bg-indigo-600 mt-8 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                  Add Expense
+                </button>
+                </div>
+
+                </div>
+            }
+
+            </div>
+
+        {/* Recent Expense History */}
+            <div>
+                <div className='flex items-center'>
+                    <img src={recentOpen? option_down : option_right} onClick={()=>setRecentOpen(!recentOpen)} className='p-3'/>
+                    <span>RECENT TRANSACTIONS</span>
+                </div>
+                <span className='font-thin text-sm ml-5 text-gray-400'>* We shows only Recent 4 Transactions, See full transactions in transactions page</span>
+
+                {
+                    recentOpen && 
+                
+
+                <div className='m-5 rounded-md shadow-lg border-2 border-gray-400'>
+                    <ul className='border-collapse'>
+                        <li className='flex items-center justify-between p-4 border-b border-dotted border-gray-500'>
+                            <div className='flex items-center justify-between'>
+                            {/* <img src={date} className='w-4 h-4'/> */} <span className='text-gray-600 ml-2 mr-4'>12 MAY</span>
+                            <img src={credit} className='w-4 h-4'/> <span className='text-gray-900 ml-2 mr-4'>Credit Card</span>
+                            <span className='bg-gray-400 rounded-sm px-3 text-sm text-gray-800 font-extralight'>Rent</span>
+                            </div>
+
+                            <div className='text-green-600 font-light mr-2'>
+                                <span className='mr-2'>99,99</span>
+                                <span>INR</span>
+                            </div>
+
+                        </li>
+                        <li className='flex items-center justify-between p-4 border-b border-dotted border-gray-500'>
+                            <div className='flex items-center justify-between'>
+                            {/* <img src={date} className='w-4 h-4'/> */} <span className='text-gray-600 ml-2 mr-4'>08 APR</span>
+                            <img src={debit} className='w-4 h-4'/> <span className='text-gray-900 ml-2 mr-4'>Debit Card</span>
+                            <span className='bg-gray-400 rounded-sm px-3 text-sm text-gray-800 font-extralight'>Movies</span>
+                            </div>
+
+                            <div className='text-green-600 font-light mr-2'>
+                                <span className='mr-2'>99,99</span>
+                                <span>INR</span>
+                            </div>
+
+                        </li>
+                        <li className='flex items-center justify-between p-4 border-b border-dotted border-gray-500'>
+                            <div className='flex items-center justify-between'>
+                            {/* <img src={date} className='w-4 h-4'/> */} <span className='text-gray-600 ml-2 mr-4'>12 MAY</span>
+                            <img src={mobile} className='w-4 h-4'/> <span className='text-gray-900 ml-2 mr-4'>Mobile Banking</span>
+                            <span className='bg-gray-400 rounded-sm px-3 text-sm text-gray-800 font-extralight'>Petrol</span>
+                            </div>
+
+                            <div className='text-green-600 font-light mr-2'>
+                                <span className='mr-2'>99,99</span>
+                                <span>INR</span>
+                            </div>
+
+                        </li>
+                        <li className='flex items-center justify-between p-4 border-b border-dotted border-gray-500'>
+                            <div className='flex items-center justify-between'>
+                            {/* <img src={date} className='w-4 h-4'/> */} <span className='text-gray-600 ml-2 mr-4'>08 APR</span>
+                            <img src={cash} className='w-4 h-4'/> <span className='text-gray-900 ml-2 mr-4'>Cash</span>
+                            <span className='bg-gray-400 rounded-sm px-3 text-sm text-gray-800 font-extralight'>Shopping</span>
+                            </div>
+
+                            <div className='text-green-600 font-light mr-2'>
+                                <span className='mr-2'>99,99</span>
+                                <span>INR</span>
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+            }
+            </div>
+
+        </div>
+    </div>
+  )
+}
+
+
+   **** Dashboard code ***
+}
