@@ -1,8 +1,10 @@
 Expense Tracker: 
 
-A simple yet functional app built with React to help manage income and expenses. It includes features like inputting income, tracking expenses, and viewing transaction history.
+A simple functional app built with React to help manage income and expenses. It includes features like inputting income, tracking expenses, and viewing transaction history.
 
-tech used : REACT JS , TAILWIND CSS, CHART JS, TAILWIND MODALS and FIREBASE
+this is my first project in venzo technologies
+
+tech used : REACT JS , TAILWIND CSS, CHART JS, TAILWIND MODALS and FIREBASE for backend
 
 
 ![Screenshot 2025-01-02 110624](https://github.com/user-attachments/assets/82b22460-eaba-4fa3-bd78-d9135162cc4d)
